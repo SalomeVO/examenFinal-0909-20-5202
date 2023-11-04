@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegistroNacimientoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//API-lista
+Route::get("index",[RegistroNacimientoController::class,"index"])->name("api-getAll");
+//API-guardar utilizamos la funcion que ya teniamos de guardar
+Route::put('create', [RegistroNacimientoController::class, 'create'])->name('api-saveZom');
